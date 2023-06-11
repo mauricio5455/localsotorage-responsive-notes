@@ -20,7 +20,7 @@ main {
     background-color: rgb(54, 52, 52);
     margin: 1% auto 1% auto;
     height: 90vh;
-    width: 60%;
+    max-width: 70%;
     border-radius: 10px;
     padding-top: 1%;
 }
@@ -28,24 +28,32 @@ main {
 .add {
     margin: 2%;
     background-color: rgb(41, 41, 41);
-    width: 10%;
+    width: 100px;
     float: left;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 20%;
+    height: 150px;
     border-radius: 10px;
     font-size: 4em;
     font-weight: 100;
     cursor: pointer;
     transition: .3s;
     overflow: hidden;
+
+    &:hover {
+        transition: .3s;
+        background-color: rgb(75, 75, 75);
+
+        & span {
+            animation: spin .5s linear 1 3s;
+        }
+    }
+
+    
 }
 
-#add:hover {
-    transition: .3s;
-    background-color: rgb(75, 75, 75);
-}
+
 
 .exp {
     background-color: rgb(75, 75, 75);
@@ -53,9 +61,16 @@ main {
     height: 95%;
 }
 
-/* span {
-    animation: spin 2s linear infinite;
-} */
+/* Media queries*/
+
+@media (orientation: portrait) and (max-width: 800px) {
+    main {
+        max-width: 800px;
+        margin: 1%;
+    }
+}
+
+/* Animações */
 
 @keyframes spin {
     from {
