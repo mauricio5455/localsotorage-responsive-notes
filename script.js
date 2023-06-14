@@ -13,6 +13,10 @@ const saveBtn = document.querySelector('#save');
 const backBtn = document.querySelector('#back');
 const campoTexto = document.querySelector('#nota');
 const campoNome = document.querySelector('#nome');
+const opView = document.querySelector('#opt')
+const noOptBtn = document.querySelector('#noop')
+const yesOptBtn = document.querySelector('#yesop')
+
 
 add.addEventListener('click', (e) =>{
     add.classList.add('exp');
@@ -22,15 +26,32 @@ add.addEventListener('click', (e) =>{
 });
 
 backBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if(campoNome.value.length > 5 && campoTexto.value.length > 10) {
+        opt.classList.remove('sem');
+    } else {
+        fecharLimpando();
+    }
+});
+
+yesOptBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    fecharLimpando();
+});
+
+noOptBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    opt.classList.add('sem');
+})
+
+// ------------- Funções -----------
+
+function fecharLimpando () {
+    opt.classList.add('sem');
     add.classList.remove('exp');
     add.style.display = 'flex';
     addIcon.classList.remove('sem');
     camponota.classList.add('sem');
     campoNome.value = '';
     campoTexto.value = '';
-    e.stopPropagation();
-});
-
-function abrirNotas() {
-    
 }
