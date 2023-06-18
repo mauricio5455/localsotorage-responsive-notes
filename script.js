@@ -19,10 +19,12 @@ const yesOptBtn = document.querySelector('#yesop')
 
 
 add.addEventListener('click', (e) =>{
+    e.stopImmediatePropagation();
     add.classList.add('exp');
     add.style.display = 'block';
     addicon.classList.add('sem');
     camponota.classList.remove('sem');
+    add.style.cursor = 'default';
 });
 
 backBtn.addEventListener('click', (e) => {
@@ -52,6 +54,7 @@ function fecharLimpando () {
     add.style.display = 'flex';
     addIcon.classList.remove('sem');
     camponota.classList.add('sem');
+    add.style.cursor = 'pointer';
     campoNome.value = '';
     campoTexto.value = '';
 }
