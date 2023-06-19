@@ -54,6 +54,52 @@ main {
     }
 }
 
+.nota {
+    margin: 2%;
+    background-color: rgb(37, 37, 37);
+    width: 120px;
+    float: left;
+    align-items: center;
+    justify-content: center;
+    max-height: 200px;
+    border-radius: 10px;
+    font-size: 4em;
+    font-weight: 100;
+    cursor: pointer;
+    transition: .3s;
+    overflow: hidden;
+    font-family: sans-serif;
+
+    
+    & .titulonota {
+        padding: 5%;
+        width: 100%;
+        background-color: rgb(153, 0, 255);
+        font-size: .1em;
+        margin: 0;
+        text-align: center;
+    }
+
+    & .titulonota:hover {
+        transition: .3s;
+        background-color: rgb(73, 73, 73);
+    }
+
+    &:hover {
+        transition: .3s;
+        background-color: rgb(110, 110, 110);
+
+        & span {
+            animation: spin .5s linear 1 3s;
+        }
+
+        & .titulonota{
+            transition: .3s;
+            background-color: rgb(73, 73, 73);
+        }
+    }
+}
+
 .addNota {
     height: 100%;
     align-items: center;
