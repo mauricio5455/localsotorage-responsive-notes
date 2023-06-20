@@ -57,8 +57,9 @@ main {
 .nota {
     margin: 2%;
     background-color: rgb(37, 37, 37);
-    width: 120px;
+    width: 140px;
     float: left;
+    height: 150px;
     align-items: center;
     justify-content: center;
     max-height: 200px;
@@ -69,6 +70,7 @@ main {
     transition: .3s;
     overflow: hidden;
     font-family: sans-serif;
+    position: relative;
 
     
     & .titulonota {
@@ -98,6 +100,24 @@ main {
             background-color: rgb(73, 73, 73);
         }
     }
+
+    & .content {
+        font-size: .2em;
+        margin: 0;
+        padding: 5%;
+        width: 100%;
+        height: 90%;
+    }
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 101%;
+    left: -2%;
+    height: 5%;
+    backdrop-filter: blur(1px);
 }
 
 .addNota {
