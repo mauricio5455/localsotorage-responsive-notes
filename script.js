@@ -16,10 +16,12 @@ const campoNome = document.querySelector('#nome');
 const opView = document.querySelector('#opt')
 const noOptBtn = document.querySelector('#noop')
 const yesOptBtn = document.querySelector('#yesop')
+const main = document.querySelector('#main');
 
 
 add.addEventListener('click', (e) =>{
     e.stopImmediatePropagation();
+    main.classList.add('mainexp');
     add.classList.add('exp');
     add.style.display = 'block';
     addicon.classList.add('sem');
@@ -57,4 +59,8 @@ function fecharLimpando () {
     add.style.cursor = 'pointer';
     campoNome.value = '';
     campoTexto.value = '';
+
+    setTimeout(() => {
+        main.classList.remove('mainexp');
+    }, 300);
 }

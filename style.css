@@ -19,9 +19,14 @@ body {
 
 main {
     color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    column-gap: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
     background-color: rgb(54, 52, 52);
     margin: 1% auto 1% auto;
-    height: 90vh;
     max-width: 70%;
     border-radius: 10px;
     padding-top: 1%;
@@ -31,7 +36,6 @@ main {
     margin: 2%;
     background-color: rgb(41, 41, 41);
     width: 100px;
-    float: left;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,11 +62,9 @@ main {
     margin: 2%;
     background-color: rgb(37, 37, 37);
     width: 140px;
-    float: left;
     height: 150px;
-    align-items: center;
-    justify-content: center;
     max-height: 200px;
+    max-width: 300px;
     border-radius: 10px;
     font-size: 4em;
     font-weight: 100;
@@ -71,6 +73,9 @@ main {
     overflow: hidden;
     font-family: sans-serif;
     position: relative;
+    flex-shrink: 1;
+    flex-grow: 1;
+    animation: shownote .2s ease-in;
 
     
     & .titulonota {
@@ -129,13 +134,14 @@ main {
 
 .nomenota {
     margin: 0 auto;
+    height: auto;
     width: 90%;
     display: flex;
     align-items: center;
 
     & input{
         width: 65%;
-        margin: auto;
+        margin: 25px auto;
         background-color: transparent;
         padding-top: 2%;
         padding-left: 5px;
@@ -143,7 +149,6 @@ main {
         border-bottom: 2px solid grey;
         border-radius: 5px;
         outline: none;
-        margin-top: 50px;
         caret-color: white;
         font-size: .3em;
         color: white;
@@ -193,9 +198,16 @@ main {
     height: 95%;
 }
 
+.mainexp {
+    height: 90vh;
+    & .nota {
+        display: none;
+    }
+}
+
 .buttons {
     position: relative;
-    margin: 0 auto;
+    margin: 25px auto;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -332,6 +344,23 @@ main {
     }
 }
 
+@media (orientation: portrait) and (max-width: 600px) {
+    main {
+        height: auto;
+        min-height: 90vh;
+    }
+}
+
+@media (orientation: landscape) {
+    .buttons {
+        margin: auto;
+    }
+
+    .nomenota input {
+        margin: 0 auto;
+    }
+}
+
 /* Animações */
 
 @keyframes spin {
@@ -353,6 +382,23 @@ main {
         opacity: 0;
     }
     to {
+        opacity: 1;
+    }
+}
+
+@keyframes shownote {
+    0% {
+        opacity: 0;
+        scale: 0;
+    }
+    50% {
+        opacity: .3;
+    }
+    90% {
+        opacity: .5;
+    }
+    100% {
+        scale: 1;
         opacity: 1;
     }
 }
