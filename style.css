@@ -59,14 +59,14 @@ main {
 }
 
 .nota {
-    margin: 2%;
+    margin: 2% 1%;
     background-color: rgb(37, 37, 37);
     width: 140px;
-    height: 150px;
-    max-height: 200px;
+    height: auto;
+    max-height: 20%;
     max-width: 300px;
     border-radius: 10px;
-    font-size: 4em;
+    font-size: 5em;
     font-weight: 100;
     cursor: pointer;
     transition: .3s;
