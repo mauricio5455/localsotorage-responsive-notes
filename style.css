@@ -75,7 +75,7 @@ main {
     position: relative;
     flex-shrink: 1;
     flex-grow: 1;
-    animation: shownote .2s ease-in;
+    animation: shownote .2s ease-out;
 
     
     & .titulonota {
@@ -344,20 +344,18 @@ main {
     }
 }
 
-@media (orientation: portrait) and (max-width: 600px) {
-    main {
-        height: auto;
-        min-height: 90vh;
-    }
-}
 
-@media (orientation: landscape) {
+@media (orientation: landscape) and (max-height: 450px){
     .buttons {
         margin: auto;
     }
 
     .nomenota input {
         margin: 0 auto;
+    }
+
+    .texto {
+        height: 60%;
     }
 }
 
