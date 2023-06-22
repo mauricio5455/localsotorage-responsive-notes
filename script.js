@@ -1,4 +1,10 @@
+import NoteHandler from './classes/Notas.js';
 
+const Notas = new NoteHandler();
+
+
+
+console.log(Notas.notas)
 
 
 
@@ -47,6 +53,10 @@ noOptBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     opt.classList.add('sem');
 })
+
+saveBtn.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
+});
 
 // ------------- Funções -----------
 

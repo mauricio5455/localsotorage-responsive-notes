@@ -342,6 +342,12 @@ main {
     .confbox div {
         width: 90%;
     }
+
+    .nota {
+        & .content {
+            font-size: .25em;
+        }
+    }
 }
 
 
