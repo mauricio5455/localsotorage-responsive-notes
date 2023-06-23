@@ -26,8 +26,7 @@ export default class NoteHandler {
                     nota: nota,
                 }
             }
-
-            this.salvar(notas);
+            this.salvar(1, notas);
         }
     }
 
@@ -47,7 +46,7 @@ export default class NoteHandler {
         alert('Tá pegando');
     }
 
-    salvar(id = 1, notas) {
+    salvar(id, notas) {
         localStorage.setItem('notas', JSON.stringify(notas));
         this.atualizar();
         this.renderNote(notas[id]);
