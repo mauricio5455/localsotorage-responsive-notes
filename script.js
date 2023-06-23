@@ -2,12 +2,9 @@ import NoteHandler from './classes/Notas.js';
 
 const Notas = new NoteHandler();
 
+// Notas.renderNote();
 
-
-console.log(Notas.notas)
-
-
-
+Notas.gerarNota({id: 1, nome: 'Mauricio', nota: 'lsfadflds'})
 
 
 // Coisas simpes que não necessitão de classes
@@ -55,7 +52,18 @@ noOptBtn.addEventListener('click', (e) => {
 })
 
 saveBtn.addEventListener('click', (e) => {
-    e.stopImmediatePropagation();
+
+   if(campoNome.value == '' && campoTexto.value == '') {
+         return alert('A nota deve ter nome ou conteúdo.');
+   } else if(campoNome.value.length > 20) {
+         return alert('O nome da nota não pode exeder 20 caracteres!');
+   } else {
+        e.stopImmediatePropagation();
+        let nomeNota = campoNome.value;
+        let nota = campoTexto.value;
+        Notas.criarNota(nomeNota, nota);
+        fecharLimpando();
+   }
 });
 
 // ------------- Funções -----------

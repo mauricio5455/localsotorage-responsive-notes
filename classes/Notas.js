@@ -16,7 +16,7 @@ export default class NoteHandler {
                 nota: nota,
             }
             
-            this.salvar(notas);
+            this.salvar(id, notas);
         } else {
             localStorage.setItem('notas', '');
             let notas = {
@@ -36,19 +36,51 @@ export default class NoteHandler {
     }
 
     renderNote(nota = null) {
-
+        if(!nota) {
+            
+        } else {
+            this.container.insertBefore(this.gerarNota(nota), add.nextSibling);
+        }
     }
 
     teste() {
         alert('Tá pegando');
     }
 
-    salvar(notas) {
+    salvar(id = 1, notas) {
         localStorage.setItem('notas', JSON.stringify(notas));
         this.atualizar();
+        this.renderNote(notas[id]);
     }
 
     atualizar() {
         this.notas = localStorage.getItem('notas');
+    }
+
+    gerarNota(nota) {
+        let divNota = document.createElement('div');
+        divNota.classList.add('nota');
+        divNota.id = nota.id;
+
+        let divTitulo = document.createElement('div');
+        divTitulo.classList.add('titulonota');
+
+        let titulo = document.createElement('h1');
+        titulo.textContent = nota.nome ? nota.nome : '<Sem nome 🚫>';
+
+        divTitulo.appendChild(titulo);
+
+        let divContent = document.createElement('div');
+        divContent.classList.add('content');
+
+        let paragrafo = document.createElement('p');
+        paragrafo.textContent = nota.nota ? nota.nota : '<Sem nota 🚫>';
+
+        divContent.appendChild(paragrafo);
+
+        divNota.appendChild(divTitulo);
+        divNota.appendChild(divContent);
+
+        return(divNota);
     }
 }

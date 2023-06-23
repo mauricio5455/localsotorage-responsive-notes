@@ -63,7 +63,7 @@ main {
     background-color: rgb(37, 37, 37);
     width: 140px;
     height: auto;
-    max-height: 20%;
+    max-height: 200px;
     max-width: 300px;
     border-radius: 10px;
     font-size: 5em;
@@ -345,6 +345,7 @@ main {
 
     .nota {
         & .content {
+            font-size: .25em;
             font-size: .25em;
         }
     }
