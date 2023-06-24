@@ -2,9 +2,9 @@ import NoteHandler from './classes/Notas.js';
 
 const Notas = new NoteHandler();
 
-// Notas.renderNote();
+Notas.renderNote();
 
-Notas.gerarNota({id: 1, nome: 'Mauricio', nota: 'lsfadflds'})
+
 
 
 // Coisas simpes que não necessitão de classes

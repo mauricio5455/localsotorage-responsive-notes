@@ -37,7 +37,11 @@ export default class NoteHandler {
 
     renderNote(nota = null) {
         if(!nota) {
-            
+            let ns = JSON.parse(localStorage.getItem('notas'));
+
+            for(let n in ns){
+                this.container.insertBefore(this.gerarNota(ns[n]), add.nextSibling);
+            }
         } else {
             this.container.insertBefore(this.gerarNota(nota), add.nextSibling);
         }
