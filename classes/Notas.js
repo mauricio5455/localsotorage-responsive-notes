@@ -5,6 +5,7 @@ export default class NoteHandler {
     }
 
     criarNota(nomeNota, nota) {
+        if(localStorage.getItem('notas') == null || localStorage.getItem('notas') == undefined) localStorage.clear();
 
         if(this.notas){
             let notas = JSON.parse(this.notas);
