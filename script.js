@@ -55,7 +55,7 @@ saveBtn.addEventListener('click', (e) => {
 
    if(campoNome.value == '' && campoTexto.value == '') {
          return alert('A nota deve ter nome ou conteúdo.');
-   } else if(campoNome.value.length > 20) {
+   } else if(campoNome.value.length > 50) {
          return alert('O nome da nota não pode exeder 20 caracteres!');
    } else {
         e.stopImmediatePropagation();
