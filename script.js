@@ -43,12 +43,13 @@ backBtn.addEventListener('click', (e) => {
 
 yesOptBtn.addEventListener('click', (e) => {
     e.stopPropagation();
+    sumir(opt, 200);
     fecharLimpando();
 });
 
 noOptBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    opt.classList.add('sem');
+    sumir(opt, 200);
 })
 
 saveBtn.addEventListener('click', (e) => {
@@ -69,7 +70,6 @@ saveBtn.addEventListener('click', (e) => {
 // ------------- Funções -----------
 
 function fecharLimpando () {
-    opt.classList.add('sem');
     add.classList.remove('exp');
     add.style.display = 'flex';
     addIcon.classList.remove('sem');
@@ -81,4 +81,12 @@ function fecharLimpando () {
     setTimeout(() => {
         main.classList.remove('mainexp');
     }, 300);
+}
+
+function sumir(elemento, tempo) {
+    opt.classList.add('sumir');
+    setTimeout(() => {
+        elemento.classList.add('sem');
+        elemento.classList.remove('sumir');
+    }, tempo)
 }

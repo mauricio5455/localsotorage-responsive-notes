@@ -84,7 +84,9 @@ export default class NoteHandler {
 
         divNota.appendChild(divTitulo);
         divNota.appendChild(divContent);
-        divNota.addEventListener('click', (e) => { alert(e.currentTarget.id)});
+        divNota.addEventListener('click', (e) => {
+            
+        });
 
         return(divNota);
     }
