@@ -333,6 +333,87 @@ main {
     font-size: 1em;
     font-weight: bolder;
 }
+
+.notaberta {
+    backdrop-filter: blur(3px);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notabertadiv {
+    background-color: rgb(65, 65, 65);
+    height: 95vh;
+    width: 60%;
+    max-width: 60%;
+    border-radius: 30px;
+    overflow: hidden;
+
+    & .nomenotaberta {
+        background-color: rgb(48, 48, 48);
+        height: 5%;
+        border-bottom: 2px solid black;
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+
+        & input {
+            text-align: center;
+            width: 80%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            background-color: rgb(48, 48, 48);
+            color: white;
+            font-size: 1.4em;
+            outline: none;
+        }
+
+        & input:focus {
+            transition: .3s;
+            background-color: rgb(34, 34, 34);
+        }
+    }
+}
+
+.notanotaberta {
+    background-color: rgb(66, 66, 66);
+    height: 100%;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+
+    & #notaopened{
+        resize: none;
+        background-color: rgb(66, 66, 66);
+        outline: none;
+        width: 70%;
+        max-height: 80%;
+        border-radius: 20px;
+        padding: 2%;
+        font-size: 2em;
+        color: white;
+    }
+
+    & #notaopened:focus {
+        background-color: rgb(34, 34, 34);
+    }
+}
+
+.sem {
+    display: none;
+}
+
+.sumir {
+    animation: desaparecer .2s linear 1;
+}
+
 /* Media queries*/
 
 @media (orientation: portrait) and (max-width: 800px) {
@@ -365,14 +446,6 @@ main {
     .texto {
         height: 60%;
     }
-}
-
-.sem {
-    display: none;
-}
-
-.sumir {
-    animation: desaparecer .2s linear 1;
 }
 
 /* Animações */
