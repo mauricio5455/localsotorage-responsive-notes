@@ -338,7 +338,7 @@ main {
     backdrop-filter: blur(3px);
     height: 100vh;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     display: flex;
     align-items: center;
@@ -349,9 +349,10 @@ main {
     background-color: rgb(65, 65, 65);
     height: 95vh;
     width: 60%;
-    max-width: 60%;
+    max-width: 800px;
     border-radius: 30px;
     overflow: hidden;
+    position: relative;
 
     & .nomenotaberta {
         background-color: rgb(48, 48, 48);
@@ -384,7 +385,7 @@ main {
 
 .notanotaberta {
     background-color: rgb(66, 66, 66);
-    height: 100%;
+    height: 95%;
     padding: 2%;
     display: flex;
     justify-content: center;
@@ -393,7 +394,7 @@ main {
         resize: none;
         background-color: rgb(66, 66, 66);
         outline: none;
-        width: 70%;
+        width: 80%;
         max-height: 80%;
         border-radius: 20px;
         padding: 2%;
@@ -404,6 +405,32 @@ main {
     & #notaopened:focus {
         background-color: rgb(34, 34, 34);
     }
+}
+
+.btnota {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 17%;
+}
+
+.notebtn {
+    width: 20%;
+    height: 40%;
+    min-width: 80px;
+    margin: 20px;
+    min-height: 40px;
+    border-radius: 30px;
+    border: 3px rgb(128, 125, 125) solid;
+    background-color: rgb(255, 255, 255);
+    font-size: 1em;
+    font-weight: bolder;
+    color: rgb(71, 71, 71);
 }
 
 .sem {
@@ -425,6 +452,11 @@ main {
         width: 90%;
     }
 
+    .notebtn {
+        width: 60%;
+    }
+    
+
     .nota {
         & .content {
             font-size: .25em;
@@ -433,6 +465,16 @@ main {
     }
 }
 
+@media (orientation: portrait ) {
+    .notabertadiv {
+        width: 95%;
+        max-width: none;
+    }
+
+    #notaopened {
+        width: 100% !important;
+    }
+}
 
 @media (orientation: landscape) and (max-height: 450px){
     .buttons {
@@ -446,6 +488,11 @@ main {
     .texto {
         height: 60%;
     }
+    #notaopened {
+        width: 100% !important;
+        height: 72%;
+    }
+
 }
 
 /* Animações */
