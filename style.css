@@ -419,6 +419,14 @@ main {
     height: 17%;
 }
 
+.notebtn:hover {
+    transition: .4s;
+    background: rgb(145, 145, 145);
+    color: aliceblue;
+    border: 3px white solid;
+    font-size: 1.2em;
+}
+
 .notebtn {
     width: 20%;
     height: 40%;
@@ -469,6 +477,7 @@ main {
     .notabertadiv {
         width: 95%;
         max-width: none;
+        height: 83vh;
     }
 
     #notaopened {
@@ -491,6 +500,12 @@ main {
     #notaopened {
         width: 100% !important;
         height: 72%;
+    }
+
+    .notabertadiv {
+        height: 70vh;
+        margin-top: -40px;
+
     }
 
 }
