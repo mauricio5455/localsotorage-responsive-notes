@@ -93,6 +93,10 @@ export default class NoteHandler {
     }
 
     criarNotaAberta(id) {
+        // Variaveis nome e nota
+        let nomeNota = JSON.parse(this.notas)[id].nome;
+        let nota = JSON.parse(this.notas)[id].nota;
+        let edited = false;
         // Cria o elemento <div> principal
         var divPrincipal = document.createElement("div");
         divPrincipal.className = "notaberta";
@@ -108,7 +112,7 @@ export default class NoteHandler {
         // Cria o elemento <input> para o nome da nota aberta
         var inputNomeNota = document.createElement("input");
         inputNomeNota.id = "namenotaopened";
-        inputNomeNota.value = JSON.parse(this.notas)[id].nome;
+        inputNomeNota.value = nomeNota;
 
         // Adiciona o elemento <input> ao elemento <div> do nome da nota aberta
         divNomeNota.appendChild(inputNomeNota);
@@ -120,7 +124,7 @@ export default class NoteHandler {
         // Cria o elemento <textarea> para a nota aberta
         var textareaNotaAberta = document.createElement("textarea");
         textareaNotaAberta.id = "notaopened";
-        textareaNotaAberta.value = JSON.parse(this.notas)[id].nota;
+        textareaNotaAberta.value = nota;
 
         // Adiciona o elemento <textarea> ao elemento <div> da nota aberta
         divNotaAberta.appendChild(textareaNotaAberta);
@@ -138,7 +142,7 @@ export default class NoteHandler {
         // Cria o botão "Salvar"
         var btnSalvar = document.createElement("button");
         btnSalvar.id = "sabenote";
-        btnSalvar.className = "notebtn sem";
+        btnSalvar.className = "notebtn sem showNote";
         btnSalvar.textContent = "Salvar";
 
         // Adiciona os botões ao elemento <div> dos botões
@@ -163,6 +167,26 @@ export default class NoteHandler {
         btnVoltar.addEventListener('click', (e)=> {
             e.stopPropagation();
             sumirNota();
+        });
+
+        inputNomeNota.addEventListener('input', (e)=> {
+            if(e.currentTarget.value != nomeNota) {
+                btnSalvar.classList.remove('sem');
+                edited = true;
+            } else if(!btnSalvar.classList.contains('sem')){
+                btnSalvar.classList.add('sem');
+                edited = false;
+            }
+        });
+
+        textareaNotaAberta.addEventListener('input', (e)=> {
+            if(e.currentTarget.value != nota) {
+                btnSalvar.classList.remove('sem');
+                edited = true;
+            } else if(!btnSalvar.classList.contains('sem')){
+                btnSalvar.classList.add('sem');
+                edited = false;
+            }
         });
 
        function sumirNota() {
