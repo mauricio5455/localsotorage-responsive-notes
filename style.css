@@ -449,6 +449,14 @@ main {
     animation: desaparecer .2s linear 1;
 }
 
+.showNote {
+    animation: shownote .2s ease-out;
+}
+
+.sumirCima {
+    animation: sumirCima .4s ease-out 1;
+}
+
 /* Media queries*/
 
 @media (orientation: portrait) and (max-width: 800px) {
@@ -553,5 +561,12 @@ main {
     100% {
         scale: 1;
         opacity: 1;
+    }
+}
+
+@keyframes sumirCima {
+    to {
+        transform: translateY(-1000px);
+        opacity: 0;
     }
 }

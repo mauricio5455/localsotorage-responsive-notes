@@ -99,7 +99,7 @@ export default class NoteHandler {
 
         // Cria o elemento <div> interna
         var divInterna = document.createElement("div");
-        divInterna.className = "notabertadiv";
+        divInterna.className = "notabertadiv showNote";
 
         // Cria o elemento <div> para o nome da nota aberta
         var divNomeNota = document.createElement("div");
@@ -138,7 +138,7 @@ export default class NoteHandler {
         // Cria o botão "Salvar"
         var btnSalvar = document.createElement("button");
         btnSalvar.id = "sabenote";
-        btnSalvar.className = "notebtn";
+        btnSalvar.className = "notebtn sem";
         btnSalvar.textContent = "Salvar";
 
         // Adiciona os botões ao elemento <div> dos botões
@@ -151,8 +151,35 @@ export default class NoteHandler {
         divInterna.appendChild(divBotoes);
         divPrincipal.appendChild(divInterna);
 
+        // Funções e eventos
+        divPrincipal.addEventListener('click', (e) => {
+            sumirNota();
+        });
+
+        divInterna.addEventListener('click', (e)=> {
+            e.stopImmediatePropagation();
+        });
+
+        btnVoltar.addEventListener('click', (e)=> {
+            e.stopPropagation();
+            sumirNota();
+        });
+
+       function sumirNota() {
+            divInterna.classList.add('sumirCima');
+            
+            setTimeout(() => {
+                divPrincipal.classList.add('sumir');
+            }, 200);
+
+            setTimeout(() => {
+                document.body.removeChild(divPrincipal);
+            }, 350);
+        }
+
         // Adiciona o elemento principal ao documento HTML
         document.body.appendChild(divPrincipal);
+
 
     }
 }
