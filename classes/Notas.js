@@ -5,6 +5,9 @@ export default class NoteHandler {
     }
 
     criarNota(nomeNota, nota) {
+        nomeNota.trim();
+        nota.trim();
+
         if(localStorage.getItem('notas') == null || localStorage.getItem('notas') == undefined) localStorage.clear();
 
         if(this.notas){
@@ -170,7 +173,7 @@ export default class NoteHandler {
         });
 
         inputNomeNota.addEventListener('input', (e)=> {
-            if(e.currentTarget.value != nomeNota) {
+            if(e.currentTarget.value.trim() != nomeNota) {
                 btnSalvar.classList.remove('sem');
                 edited = true;
             } else if(!btnSalvar.classList.contains('sem')){
@@ -180,7 +183,7 @@ export default class NoteHandler {
         });
 
         textareaNotaAberta.addEventListener('input', (e)=> {
-            if(e.currentTarget.value != nota) {
+            if(e.currentTarget.value.trim() != nota) {
                 btnSalvar.classList.remove('sem');
                 edited = true;
             } else if(!btnSalvar.classList.contains('sem')){
