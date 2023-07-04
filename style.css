@@ -47,15 +47,15 @@ main {
     transition: .3s;
     overflow: hidden;
     padding: 1%;
+}
 
-    &:hover {
-        transition: .3s;
-        background-color: rgb(75, 75, 75);
+.add:hover {
+    transition: .3s;
+    background-color: rgb(75, 75, 75);
+}
 
-        & span {
-            animation: spin .5s linear 1 3s;
-        }
-    }
+.add:hover > span{
+    animation: spin .5s linear 1 3s;
 }
 
 .nota {
@@ -77,42 +77,42 @@ main {
     flex-grow: 1;
     animation: shownote .2s ease-out;
 
-    
-    & .titulonota {
-        padding: 5%;
-        width: 100%;
-        background-color: rgb(153, 0, 255);
-        font-size: .1em;
-        margin: 0;
-        text-align: center;
-    }
+}
 
-    & .titulonota:hover {
-        transition: .3s;
-        background-color: rgb(73, 73, 73);
-    }
+.nota:hover {
+    transition: .3s;
+    background-color: rgb(110, 110, 110);
+}
 
-    &:hover {
-        transition: .3s;
-        background-color: rgb(110, 110, 110);
+.nota:hover > span {
+    animation: spin .5s linear 1 3s;
+}
 
-        & span {
-            animation: spin .5s linear 1 3s;
-        }
+.nota:hover > .titulonota{
+    transition: .3s;
+    background-color: rgb(73, 73, 73);
+}
 
-        & .titulonota{
-            transition: .3s;
-            background-color: rgb(73, 73, 73);
-        }
-    }
+.titulonota:hover {
+    transition: .3s;
+    background-color: rgb(73, 73, 73);
+}
 
-    & .content {
-        font-size: .2em;
-        margin: 0;
-        padding: 5%;
-        width: 100%;
-        height: 90%;
-    }
+.content {
+    font-size: .2em;
+    margin: 0;
+    padding: 5%;
+    width: 100%;
+    height: 90%;
+}
+
+.titulonota {
+    padding: 5%;
+    width: 100%;
+    background-color: rgb(153, 0, 255);
+    font-size: .1em;
+    margin: 0;
+    text-align: center;
 }
 
 .content::before {
@@ -138,33 +138,33 @@ main {
     width: 90%;
     display: flex;
     align-items: center;
+}
 
-    & input{
-        width: 65%;
-        margin: 25px auto;
-        background-color: transparent;
-        padding-top: 2%;
-        padding-left: 5px;
-        border: none;
-        border-bottom: 2px solid grey;
-        border-radius: 5px;
-        outline: none;
-        caret-color: white;
-        font-size: .3em;
-        color: white;
-        text-align: center;
-    }
+.nomenota input{
+    width: 65%;
+    margin: 25px auto;
+    background-color: transparent;
+    padding-top: 2%;
+    padding-left: 5px;
+    border: none;
+    border-bottom: 2px solid grey;
+    border-radius: 5px;
+    outline: none;
+    caret-color: white;
+    font-size: .3em;
+    color: white;
+    text-align: center;
+}
 
-    & input::placeholder {
-        color: white;
-        font-size: 1em;
-        text-align: center;
-    }
+.nomenota input:focus::placeholder {
+    transition: 1s;
+    color: transparent;
+}
 
-    & input:focus::placeholder {
-        transition: 1s;
-        color: transparent;
-    }
+.nomenota input::placeholder {
+    color: rgb(255, 255, 255);
+    font-size: 1em;
+    text-align: center;
 }
 
 .texto {
@@ -177,19 +177,20 @@ main {
     border: 1px white solid;
     border-radius: 10px;
     overflow: hidden;
+}
 
-    & textarea {
-        background-color: rgb(39, 39, 39);
-        width: 100%;
-        height: 100%;
-        resize: none;
-        border-radius: 10px;
-        padding: 5px;
-        font-size: .5em;
-        outline: none;
-        color: white;
-        text-align: justify;
-    }
+.texto textarea {
+    transition: .2s;
+    background-color: rgb(39, 39, 39);
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: .5em;
+    outline: none;
+    color: white;
+    text-align: justify;
 }
 
 .exp {
@@ -200,9 +201,10 @@ main {
 
 .mainexp {
     height: 90vh;
-    & .nota {
-        display: none;
-    }
+}
+
+.mainexp .nota {
+    display: none;
 }
 
 .buttons {
@@ -216,33 +218,27 @@ main {
     justify-content: space-around;
 }
 
-#save {
-    &:hover {
-        &::before { 
-            content: '💾';
-            position: absolute;
-            left: 49%;
-            top: 4px;
-            background-color: rgba(0, 0, 0, 0.192);
-            padding: 3px;
-            border-radius: 50%;
 
-        }
-    }
+
+#save:hover::before { 
+    content: '💾';
+    position: absolute;
+    left: 49%;
+    top: 4px;
+    background-color: rgba(0, 0, 0, 0.192);
+    padding: 3px;
+    border-radius: 50%;
+
 }
 
-#back {
-    &:hover {
-        &::before { 
-            content: '🗑️';
-            position: absolute;
-            left: -1.5%;
-            top: 4px;
-            background-color: rgba(0, 0, 0, 0.192);
-            padding: 3px;
-            border-radius: 50%;
-        }
-    }
+#back:hover::before { 
+    content: '🗑️';
+    position: absolute;
+    left: -1.5%;
+    top: 4px;
+    background-color: rgba(0, 0, 0, 0.192);
+    padding: 3px;
+    border-radius: 50%;
 }
 
 .button {
@@ -254,13 +250,13 @@ main {
     color: white;
     border-radius: 30px;
     cursor: pointer;
-
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.301);
-        transition: .3s;
-        border: black 1px solid;
-    }  
 }
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.301);
+    transition: .3s;
+    border: black 1px solid;
+}  
 
 .confbox {
     height: 100vh;
@@ -274,42 +270,42 @@ main {
     justify-content: center;
     backdrop-filter: blur(5px);
     animation: aparecer .1s linear;
+}
 
-    & div {
-        background-color: rgba(48, 48, 48, 0.74);
-        color: white;
-        width: 40%;
-        height: auto;
-        padding: 1%;
-        border-radius: 20px;
-        max-width: 400px;
-    }
+.confbox div {
+    background-color: rgba(48, 48, 48, 0.74);
+    color: white;
+    width: 40%;
+    height: auto;
+    padding: 1%;
+    border-radius: 20px;
+    max-width: 400px;
+}
 
-    & #warn {
-        color: rgb(255, 108, 108);
-        display: block;
-        text-align: center;
-        font-family: sans-serif;
-        font-size: 2em;
-    }
+#warn {
+    color: rgb(255, 108, 108);
+    display: block;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 2em;
+}
 
-    & #warntxt {
-        color: white;
-        margin: 1%;
-        display: block;
-        text-align: center;
-        font-family: sans-serif;
-        font-size: 1em;
-    }
+#buttonOp-div {
+    margin-top: 10%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    background-color: transparent;
+}
 
-    & #buttonOp-div {
-        margin-top: 10%;
-        width: 100%;
-        height: auto;
-        display: flex;
-        justify-content: space-around;
-        background-color: transparent;
-    }
+#warntxt {
+    color: white;
+    margin: 1%;
+    display: block;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1em;
 }
 
 #yesop:hover {
@@ -353,34 +349,34 @@ main {
     border-radius: 30px;
     overflow: hidden;
     position: relative;
+}
 
-    & .nomenotaberta {
-        background-color: rgb(48, 48, 48);
-        height: 5%;
-        border-bottom: 2px solid black;
-        padding: 2px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 40px;
+.nomenotaberta {
+    background-color: rgb(48, 48, 48);
+    height: 5%;
+    border-bottom: 2px solid black;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+}
 
-        & input {
-            text-align: center;
-            width: 80%;
-            height: 100%;
-            border: none;
-            border-radius: 10px;
-            background-color: rgb(48, 48, 48);
-            color: white;
-            font-size: 1.4em;
-            outline: none;
-        }
+.nomenotaberta input {
+    text-align: center;
+    width: 80%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(48, 48, 48);
+    color: white;
+    font-size: 1.4em;
+    outline: none;
+}
 
-        & input:focus {
-            transition: .3s;
-            background-color: rgb(34, 34, 34);
-        }
-    }
+.nomenotaberta input:focus {
+    transition: .3s;
+    background-color: rgb(34, 34, 34);
 }
 
 .notanotaberta {
@@ -389,22 +385,22 @@ main {
     padding: 2%;
     display: flex;
     justify-content: center;
+}
 
-    & #notaopened{
-        resize: none;
-        background-color: rgb(66, 66, 66);
-        outline: none;
-        width: 80%;
-        max-height: 80%;
-        border-radius: 20px;
-        padding: 2%;
-        font-size: 2em;
-        color: white;
-    }
+#notaopened{
+    resize: none;
+    background-color: rgb(66, 66, 66);
+    outline: none;
+    width: 80%;
+    max-height: 80%;
+    border-radius: 20px;
+    padding: 2%;
+    font-size: 2em;
+    color: white;
+}
 
-    & #notaopened:focus {
-        background-color: rgb(34, 34, 34);
-    }
+#notaopened:focus {
+    background-color: rgb(34, 34, 34);
 }
 
 .btnota {
@@ -472,12 +468,9 @@ main {
         width: 60%;
     }
     
-
-    .nota {
-        & .content {
-            font-size: .25em;
-            font-size: .25em;
-        }
+    .nota .content {
+        font-size: .25em;
+        font-size: .25em;
     }
 }
 
