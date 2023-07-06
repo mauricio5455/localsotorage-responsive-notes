@@ -60,6 +60,20 @@ export default class NoteHandler {
         this.renderNote(notas[id]);
     }
 
+    atualizarNota(id, notas) {
+        localStorage.setItem('notas', JSON.stringify(notas));
+        this.atualizar();
+        
+        let notaHtmlNome = document.getElementById(id).querySelector('.titulonota h1');
+
+        let notaHtmlNota = document.getElementById(id).querySelector('.content p');
+
+        notaHtmlNota.innerHTML = notas[id].nota;
+        notaHtmlNome.innerHTML = notas[id].nome;
+
+        alert('Nota atualizada!');
+    }
+
     atualizar() {
         this.notas = localStorage.getItem('notas');
     }
@@ -190,6 +204,17 @@ export default class NoteHandler {
                 btnSalvar.classList.add('sem');
                 edited = false;
             }
+        });
+
+        btnSalvar.addEventListener('click', () => {
+            let nome = inputNomeNota.value;
+            let nota = textareaNotaAberta.value
+            console.log(`nome da nota: ${nome} \n nota: ${nota}`);
+            let notas = JSON.parse(this.notas);
+            notas[id].nome = nome;
+            notas[id].nota = nota;
+            this.atualizarNota(id, notas);
+            btnSalvar.classList.add('sem');
         });
 
        function sumirNota() {
