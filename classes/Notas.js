@@ -196,7 +196,7 @@ export default class NoteHandler {
             }
         });
 
-        textareaNotaAberta.addEventListener('input', (e)=> {
+        textareaNotaAberta.addEventListener('input', e=> {
             if(e.currentTarget.value.trim() != nota) {
                 btnSalvar.classList.remove('sem');
                 edited = true;
