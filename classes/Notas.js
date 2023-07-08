@@ -1,7 +1,10 @@
+import PopUps from "./PopUps.js";
+
 export default class NoteHandler {
     constructor() {
         this.container = document.querySelector("#main");
         this.notas = localStorage.getItem('notas');
+        this.PopUp = new PopUps();
     }
 
     criarNota(nomeNota, nota) {
@@ -50,10 +53,6 @@ export default class NoteHandler {
         }
     }
 
-    teste() {
-        alert('Tá pegando');
-    }
-
     salvar(id, notas) {
         localStorage.setItem('notas', JSON.stringify(notas));
         this.atualizar();
@@ -68,10 +67,10 @@ export default class NoteHandler {
 
         let notaHtmlNota = document.getElementById(id).querySelector('.content p');
 
-        notaHtmlNota.innerHTML = notas[id].nota;
-        notaHtmlNome.innerHTML = notas[id].nome;
+        notaHtmlNota.innerHTML = notas[id].nota ? notas[id].nota : 'Sem nota 🚫';
+        notaHtmlNome.innerHTML = notas[id].nome ? notas[id].nome : 'Sem nome 🚫';
 
-        alert('Nota atualizada!');
+        return this.PopUp.aviso({text: 'Nota atualizada!'});
     }
 
     atualizar() {
@@ -87,7 +86,7 @@ export default class NoteHandler {
         divTitulo.classList.add('titulonota');
 
         let titulo = document.createElement('h1');
-        titulo.textContent = nota.nome ? nota.nome : '<Sem nome 🚫>';
+        titulo.textContent = nota.nome ? nota.nome : 'Sem nome 🚫';
 
         divTitulo.appendChild(titulo);
 
@@ -95,7 +94,7 @@ export default class NoteHandler {
         divContent.classList.add('content');
 
         let paragrafo = document.createElement('p');
-        paragrafo.textContent = nota.nota ? nota.nota : '<Sem nota 🚫>';
+        paragrafo.textContent = nota.nota ? nota.nota : 'Sem nota 🚫';
 
         divContent.appendChild(paragrafo);
 
@@ -196,7 +195,7 @@ export default class NoteHandler {
             }
         });
 
-        textareaNotaAberta.addEventListener('input', e=> {
+        textareaNotaAberta.addEventListener('input', (e) => {
             if(e.currentTarget.value.trim() != nota) {
                 btnSalvar.classList.remove('sem');
                 edited = true;
@@ -208,7 +207,14 @@ export default class NoteHandler {
 
         btnSalvar.addEventListener('click', () => {
             let nome = inputNomeNota.value;
-            let nota = textareaNotaAberta.value
+            let nota = textareaNotaAberta.value;
+
+            if(nome.length == '' && nota.length == ''){
+                return this.PopUp.aviso({text: 'O nome e a nota não podem ser vazias.', border: 'red'});
+            } else if(nome.length > 50) {
+                return this.PopUp.aviso({text: 'O nome da nota deve ser menor que 50 caracteres.', color: 'red'});
+            }
+
             console.log(`nome da nota: ${nome} \n nota: ${nota}`);
             let notas = JSON.parse(this.notas);
             notas[id].nome = nome;

@@ -1,6 +1,10 @@
 import NoteHandler from './classes/Notas.js';
+import PopUps from './classes/PopUps.js';
+
 
 const Notas = new NoteHandler();
+const PopUp = new PopUps();
+
 
 Notas.renderNote();
 
@@ -55,14 +59,15 @@ noOptBtn.addEventListener('click', (e) => {
 saveBtn.addEventListener('click', (e) => {
 
    if(campoNome.value == '' && campoTexto.value == '') {
-         return alert('A nota deve ter nome ou conteúdo.');
+         return PopUp.aviso({text: 'A nota deve ter nome ou conteúdo.', border: 'red'});
    } else if(campoNome.value.length > 50) {
-         return alert('O nome da nota não pode exeder 20 caracteres!');
+         return PopUp.aviso({text: 'O nome da nota não pode exeder 20 caracteres!', border: 'red'});
    } else {
         e.stopImmediatePropagation();
         let nomeNota = campoNome.value;
         let nota = campoTexto.value;
         Notas.criarNota(nomeNota, nota);
+        PopUp.aviso({text: 'Nota Salva!', border: 'green'})
         fecharLimpando();
    }
 });

@@ -437,20 +437,38 @@ main {
     color: rgb(71, 71, 71);
 }
 
-.sem {
-    display: none;
+/* PopUps */
+
+.textoAviso {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    min-height: 50px;
+    margin-top: 5px;
+    animation: sumirCimaAviso .4s reverse ease-out;
 }
 
-.sumir {
-    animation: desaparecer .2s linear 1;
+.textoAvisoFilha {
+    background-color: rgb(51, 51, 51);
+    height: 100%;
+    width: 90%;
+    box-sizing: border-box;
+    max-width: 900px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(98, 255, 163);
 }
 
-.showNote {
-    animation: shownote .2s ease-out;
-}
-
-.sumirCima {
-    animation: sumirCima .4s ease-out 1;
+.textoAvisoFilha span {
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    font-weight: bolder;
 }
 
 /* Media queries*/
@@ -511,6 +529,27 @@ main {
 
 }
 
+/* Classes de animação*/
+
+.sem {
+    display: none;
+}
+
+.sumir {
+    animation: desaparecer .2s linear 1;
+}
+
+.showNote {
+    animation: shownote .2s ease-out;
+}
+
+.sumirCima {
+    animation: sumirCima 4s ease-out 1;
+}
+
+.sumirCimaAviso {
+    animation: sumirCimaAviso .4s ease-in;
+}
 /* Animações */
 
 @keyframes spin {
@@ -560,6 +599,13 @@ main {
 @keyframes sumirCima {
     to {
         transform: translateY(-1000px);
+        opacity: 0;
+    }
+}
+
+@keyframes sumirCimaAviso {
+    to {
+        transform: translateY(-80px);
         opacity: 0;
     }
 }
