@@ -5,7 +5,6 @@ import PopUps from './classes/PopUps.js';
 const Notas = new NoteHandler();
 const PopUp = new PopUps();
 
-
 Notas.renderNote();
 
 
@@ -20,9 +19,6 @@ const saveBtn = document.querySelector('#save');
 const backBtn = document.querySelector('#back');
 const campoTexto = document.querySelector('#nota');
 const campoNome = document.querySelector('#nome');
-const opView = document.querySelector('#opt')
-const noOptBtn = document.querySelector('#noop')
-const yesOptBtn = document.querySelector('#yesop')
 const main = document.querySelector('#main');
 
 
@@ -39,22 +35,11 @@ add.addEventListener('click', (e) =>{
 backBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     if(campoNome.value.length > 5 && campoTexto.value.length > 10) {
-        opt.classList.remove('sem');
+        PopUp.duplaConfirmação({title: 'Tem certeza?', subtitle: 'A nota será perdida!', callBackYes: fecharLimpando});
     } else {
         fecharLimpando();
     }
 });
-
-yesOptBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    sumir(opt, 200);
-    fecharLimpando();
-});
-
-noOptBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    sumir(opt, 200);
-})
 
 saveBtn.addEventListener('click', (e) => {
 
@@ -67,7 +52,7 @@ saveBtn.addEventListener('click', (e) => {
         let nomeNota = campoNome.value;
         let nota = campoTexto.value;
         Notas.criarNota(nomeNota, nota);
-        PopUp.aviso({text: 'Nota Salva!', border: 'green'})
+        PopUp.aviso({text: 'Nota Criada!', border: 'green'})
         fecharLimpando();
    }
 });
@@ -86,12 +71,4 @@ function fecharLimpando () {
     setTimeout(() => {
         main.classList.remove('mainexp');
     }, 300);
-}
-
-function sumir(elemento, tempo) {
-    opt.classList.add('sumir');
-    setTimeout(() => {
-        elemento.classList.add('sem');
-        elemento.classList.remove('sumir');
-    }, tempo)
 }

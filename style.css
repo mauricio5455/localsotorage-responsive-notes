@@ -223,9 +223,9 @@ main {
 #save:hover::before { 
     content: '💾';
     position: absolute;
-    left: 49%;
+    left: 48%;
     top: 4px;
-    background-color: rgba(0, 0, 0, 0.192);
+    background-color: rgba(0, 0, 0, 0.363);
     padding: 3px;
     border-radius: 50%;
 
@@ -234,28 +234,30 @@ main {
 #back:hover::before { 
     content: '🗑️';
     position: absolute;
-    left: -1.5%;
+    left: -1.7%;
     top: 4px;
-    background-color: rgba(0, 0, 0, 0.192);
+    background-color: rgba(0, 0, 0, 0.363);
     padding: 3px;
     border-radius: 50%;
 }
 
 .button {
-    background-color: gray;
-    border: white 1px solid;
     font-size: .3em;
     padding: 2%;
     width: 35%;
-    color: white;
     border-radius: 30px;
     cursor: pointer;
+    border: 3px rgb(128, 125, 125) solid;
+    background-color: rgb(255, 255, 255);
+    font-weight: bolder;
+    color: rgb(71, 71, 71);
 }
 
 .button:hover {
-    background-color: rgba(0, 0, 0, 0.301);
-    transition: .3s;
-    border: black 1px solid;
+    transition: .4s;
+    background: rgb(145, 145, 145);
+    color: aliceblue;
+    border: 3px white solid;
 }  
 
 .confbox {
@@ -273,17 +275,16 @@ main {
 }
 
 .confbox div {
-    background-color: rgba(48, 48, 48, 0.74);
+    background-color: rgba(0, 0, 0, 0.582);
     color: white;
     width: 40%;
     height: auto;
-    padding: 1%;
+    padding: 2%;
     border-radius: 20px;
     max-width: 400px;
 }
 
 #warn {
-    color: rgb(255, 108, 108);
     display: block;
     text-align: center;
     font-family: sans-serif;
@@ -300,7 +301,6 @@ main {
 }
 
 #warntxt {
-    color: white;
     margin: 1%;
     display: block;
     text-align: center;
@@ -308,26 +308,23 @@ main {
     font-size: 1em;
 }
 
-#yesop:hover {
-    transition: .5s;
-    background-color: red;
-}
-
-#noop:hover {
-    transition: .5s;
-    background-color: rgb(0, 138, 0);
-}
-
 .buttonOp {
     display: inline;
     padding: 5%;
     width: 40%;
     border-radius: 40px;
-    border: white 1px solid;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    font-size: 1em;
     font-weight: bolder;
+    border: 3px rgb(128, 125, 125) solid;
+    background-color: rgb(255, 255, 255);
+    font-size: 1em;
+    color: rgb(71, 71, 71);
+}
+
+.buttonOp:hover {
+    transition: .4s;
+    background: rgb(145, 145, 145);
+    color: aliceblue;
+    border: 3px white solid;
 }
 
 .notaberta {
@@ -544,7 +541,7 @@ main {
 }
 
 .sumirCima {
-    animation: sumirCima 4s ease-out 1;
+    animation: sumirCima .4s ease-out 1;
 }
 
 .sumirCimaAviso {
