@@ -29,7 +29,7 @@ export default class PopUps {
             return close();
         });
 
-        document.getElementById('yesop').addEventListener('click', e => {
+        document.getElementById('yesop').addEventListener('click', () => {
             if(callBackYes) {
                 callBackYes();
             }

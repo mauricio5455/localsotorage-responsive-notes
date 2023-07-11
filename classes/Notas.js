@@ -13,9 +13,10 @@ export default class NoteHandler {
 
         if(localStorage.getItem('notas') == null || localStorage.getItem('notas') == undefined) localStorage.clear();
 
-        if(this.notas){
+        if(this.notas && Object.keys(JSON.parse(this.notas)).length != 0){
+            alert('dafklj');
             let notas = JSON.parse(this.notas);
-            let id = Object.keys(notas).length + 1;
+            let id = +Object.keys(notas)[Object.keys(notas).length - 1] + 1;
 
             notas[id] = {
                 id: id,
@@ -108,6 +109,23 @@ export default class NoteHandler {
         return(divNota);
     }
 
+    apagarNota(id, sumir) {
+        this.PopUp.duplaConfirmação({
+            title: 'Tem certeza?',
+            subtitle: 'Após excluir a nota, não será possível recuperar.',
+            callBackYes: () => {
+                let notas = JSON.parse(this.notas);
+                delete notas[id];
+                localStorage.setItem('notas', JSON.stringify(notas));
+
+                document.getElementById('main').removeChild(document.getElementById(id));
+
+                this.atualizar();
+                sumir();
+            },
+        });
+    }
+
     criarNotaAberta(id) {
         // Variaveis nome e nota
         let nomeNota = JSON.parse(this.notas)[id].nome;
@@ -149,6 +167,12 @@ export default class NoteHandler {
         var divBotoes = document.createElement("div");
         divBotoes.className = "btnota";
 
+        // Cria botão "Apagar"
+        var btnApagar = document.createElement("button");
+        btnApagar.id = "deletenote";
+        btnApagar.className = "notebtn";
+        btnApagar.textContent = "Apagar 🗑️";
+
         // Cria o botão "Voltar"
         var btnVoltar = document.createElement("button");
         btnVoltar.id = "backnote";
@@ -163,6 +187,7 @@ export default class NoteHandler {
 
         // Adiciona os botões ao elemento <div> dos botões
         divBotoes.appendChild(btnVoltar);
+        divBotoes.appendChild(btnApagar);
         divBotoes.appendChild(btnSalvar);
 
         // Adiciona os elementos criados à hierarquia correta
@@ -183,6 +208,11 @@ export default class NoteHandler {
         btnVoltar.addEventListener('click', (e)=> {
             e.stopPropagation();
             sumirNota();
+        });
+
+        btnApagar.addEventListener('click', e => {
+            e.stopPropagation();
+            this.apagarNota(id, sumirNota);
         });
 
         inputNomeNota.addEventListener('input', (e)=> {
@@ -214,11 +244,9 @@ export default class NoteHandler {
             } else if(nome.length > 50) {
                 return this.PopUp.aviso({text: 'O nome da nota deve ser menor que 50 caracteres.', color: 'red'});
             }
-
-            console.log(`nome da nota: ${nome} \n nota: ${nota}`);
             let notas = JSON.parse(this.notas);
-            notas[id].nome = nome;
-            notas[id].nota = nota;
+            notas[id].nome = nome.trim();
+            notas[id].nota = nota.trim();
             this.atualizarNota(id, notas);
             btnSalvar.classList.add('sem');
         });
