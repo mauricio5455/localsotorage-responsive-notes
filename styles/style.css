@@ -445,7 +445,11 @@ main {
 }
 
 .sumirCimaAviso {
-    animation: sumirCimaAviso .4s ease-in;
+    animation: sumirCimaAviso .4s ease-in 1;
+}
+
+.aparecerCimaAviso {
+    animation: sumirCimaAviso .4s reverse ease-out;
 }
 /* Animações */
 

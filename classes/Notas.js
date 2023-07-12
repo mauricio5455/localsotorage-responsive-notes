@@ -121,6 +121,7 @@ export default class NoteHandler {
                 document.getElementById('main').removeChild(document.getElementById(id));
 
                 this.atualizar();
+                this.PopUp.aviso({text: 'Nota excluída', border: 'green'});
                 sumir();
             },
         });

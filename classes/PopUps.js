@@ -54,6 +54,7 @@ export default class PopUps {
 
         let divFilha = document.createElement('div');
         divFilha.classList.add('textoAvisoFilha');
+        divFilha.classList.add('aparecerCimaAviso');
 
         let txt = document.createElement('span');
         txt.innerHTML = text;
@@ -68,7 +69,7 @@ export default class PopUps {
 
         setTimeout(()=>{
 
-            divPai.classList.add('sumirCima');
+            divPai.classList.add('sumirCimaAviso');
 
             setTimeout(()=> {
                 document.body.removeChild(divPai);
