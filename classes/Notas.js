@@ -14,7 +14,6 @@ export default class NoteHandler {
         if(localStorage.getItem('notas') == null || localStorage.getItem('notas') == undefined) localStorage.clear();
 
         if(this.notas && Object.keys(JSON.parse(this.notas)).length != 0){
-            alert('dafklj');
             let notas = JSON.parse(this.notas);
             let id = +Object.keys(notas)[Object.keys(notas).length - 1] + 1;
 
