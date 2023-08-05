@@ -1,7 +1,7 @@
 {
     "name": "Bloco de notas",
     "short_name": "Notas",
-    "start_url": "/",
+    "start_url": "/localsotorage-responsive-notes/",
     "display": "minimal-ui",
     "background_color": "grey",
     "description": "Um simples bloco de notas que salva as notas no localstorage do navegador.",
