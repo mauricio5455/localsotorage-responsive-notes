@@ -1,0 +1,22 @@
+{
+    "name": "Bloco de notas",
+    "short_name": "Notas",
+    "start_url": "/",
+    "display": "minimal-ui",
+    "background_color": "grey",
+    "description": "Um simples bloco de notas que salva as notas no localstorage do navegador.",
+    "theme_color": "grey",
+    "scope": "/",
+    "orientation": "portrait-primary",
+
+    "icons": [
+        {
+            "src": "images/icon.png",
+            "sizes": "200x200"
+        },
+        {
+            "src": "images/logo512.png",
+            "sizes": "512x512"
+        }
+    ]
+}
