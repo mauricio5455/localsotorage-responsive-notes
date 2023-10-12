@@ -7,9 +7,6 @@ const PopUp = new PopUps();
 
 Notas.renderNote();
 
-
-
-
 // Coisas simpes que não necessitão de classes
 
 const add = document.querySelector('#add');
@@ -71,4 +68,18 @@ function fecharLimpando () {
     setTimeout(() => {
         main.classList.remove('mainexp');
     }, 300);
+}
+
+
+// ServiceWorker
+
+if('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+        .then(reg => {
+            console.log('Service Worker Registrado!', reg);
+        }).catch(err => {
+            console.log('Falha ao registrar o Sevice Worker:', err);
+        });
+    });
 }
